@@ -4,17 +4,17 @@
 This project sets up a secure and isolated Azure infrastructure using multiple Virtual Networks (VNets) and subnets. It leverages Azure Bastion for secure RDP/SSH access without exposing public IPs and Network Security Groups (NSGs) for traffic control and isolation.
 
 ### Key Features
--> Segregated VNets for HR, IT, and Finance with specific security rules.
--> Azure Bastion Host for secure VM access.
--> Private VMs with no direct internet exposure.
--> Network Security Groups to enforce strict access control.
+1. Segregated VNets for HR, IT, and Finance with specific security rules.
+2. Azure Bastion Host for secure VM access.
+3. Private VMs with no direct internet exposure.
+4. Network Security Groups to enforce strict access control.
 
 ### Architecture Overview
--> Azure Bastion Host: Provides secure RDP/SSH access without public IPs.
--> HR VNet: SSH (port 22) access is blocked 
--> IT and Finance VNets: SSH access allowed for management
--> NSGs: Implement strict traffic control rules.
--> Virtual Machines: Linux VMs with private IPs and no direct internet access.
+1. Azure Bastion Host: Provides secure RDP/SSH access without public IPs.
+2. HR VNet: SSH (port 22) access is blocked 
+3. IT and Finance VNets: SSH access allowed for management
+4. NSGs: Implement strict traffic control rules.
+5. Virtual Machines: Linux VMs with private IPs and no direct internet access.
 
 ## Prerequisites
 Terraform installed (>= 4.16.0)
