@@ -9,18 +9,21 @@ This project sets up a secure and isolated Azure infrastructure using multiple V
 3. Private VMs with no direct internet exposure.
 4. Network Security Groups to enforce strict access control.
 
-### Architecture Overview
+### infra Overview
 1. Azure Bastion Host: Provides secure RDP/SSH access without public IPs.
 2. HR VNet: SSH (port 22) access is blocked 
 3. IT and Finance VNets: SSH access allowed for management
 4. NSGs: Implement strict traffic control rules.
 5. Virtual Machines: Linux VMs with private IPs and no direct internet access.
 
+### Infra Diagram
+![Project Infra](./infra-diagram.png)
+
 ## Prerequisites
-Terraform installed (>= 4.16.0)
-az
-Access to an Azure subscription
-Service Principal with required permissions
+- Terraform installed (>= 4.16.0)
+- az
+- Access to an Azure subscription
+- Service Principal with required permissions
 
 ## Setup and Configuration
 1. Clone the repo
