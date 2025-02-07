@@ -1,7 +1,7 @@
 # Azure VNet Arch with Bastion, NSGs & Subnet Isolation
 
 ## Description
-This project sets up a secure and isolated Azure infrastructure using multiple Virtual Networks (VNets) and subnets. It leverages Azure Bastion for secure RDP/SSH access without exposing public IPs and Network Security Groups (NSGs) for traffic control and isolation.
+This project creates a secure and isolated Azure infrastructure using multiple Virtual Networks (VNets) and subnets. It leverages Azure Bastion for secure RDP/SSH access without exposing public IPs and Network Security Groups (NSGs) for traffic control and isolation.
 
 ### Key Features
 1. Segregated VNets for HR, IT, and Finance with specific security rules.
@@ -26,26 +26,30 @@ This project sets up a secure and isolated Azure infrastructure using multiple V
 - Service Principal with required permissions
 
 ## Setup and Configuration
-1. Clone the repo
-2. Run this command in your cmd to set the Env variables
-'''bash
-set "TF_VAR_current_subscription_id=<sub-id>" & set "TF_VAR_current_tenant_id=<tenant-id>"
-'''
-3.  Generate SSH Key Pair, we need 3 key pairs for each VM
-'''bash
-ssh-keygen -t rsa -b 2048
-'''
-4. Add the public key path in the "vm\main.tf" line 32, 88, 144 (Each VM gets assigned its own .pub)
+
+1. Clone the repository
+
+2. Run this command in your cmd to set the environment variables:
+   ```bash
+   set "TF_VAR_current_subscription_id=<sub-id>" & set "TF_VAR_current_tenant_id=<tenant-id>"
+
+3. Generate SSH Key Pair, we need 3 key pairs for each VM
+   ```bash
+   ssh-keygen -t rsa -b 2048
+  
+4. Add the generated public key paths in the vm\main.tf file at:
+- Line 32
+- Line 88
+- Line 144
+
+**Each VM should have its .pub file**
+
 
 5. Building the config
-'''bash
-az login  
-terraform init  
-terraform apply -var-file=tfvars\test.tfvars
-'''
+   ```bash
+   az login
+   terraform init
+   terraform apply -var-file=tfvars\test.tfvars
 
 ## Contributing
 Contributions are welcome! Please submit a pull request or raise an issue for any improvements.
-
-
-
