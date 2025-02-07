@@ -28,17 +28,17 @@ This project sets up a secure and isolated Azure infrastructure using multiple V
 ## Setup and Configuration
 1. Clone the repo
 2. Run this command in your cmd to set the Env variables
-'''sh
+'''
 set "TF_VAR_current_subscription_id=<sub-id>" & set "TF_VAR_current_tenant_id=<tenant-id>"
 '''
 3.  Generate SSH Key Pair, we need 3 key pairs for each VM
-'''sh
+'''
 ssh-keygen -t rsa -b 2048
 '''
 4. Add the public key path in the "vm\main.tf" line 32, 88, 144 (Each VM gets assigned its own .pub)
 
 5. Building the config
-'''sh
+'''
 az login  
 terraform init  
 terraform apply -var-file=tfvars\test.tfvars
